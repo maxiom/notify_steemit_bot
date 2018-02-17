@@ -1,0 +1,13 @@
+<html>
+    <head>
+    <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+        <script>
+          const FRIEND_LIST = ['maxiom'];
+          
+          steem.api.streamTransactions('head’,(error, result) => {
+              console.log(error, result)
+          });
+        </script>
+    </head>
+    <body></body>
+</html>
