@@ -4,9 +4,9 @@
         <script>
           const FRIEND_LIST = ['maxiom'];
           
-          steem.api.streamTransactions('head’,(error, result) => {
-              console.log(error, result)
-          });
+          steem.api.getAccounts(['ned', 'dan'], function(err, response){
+                console.log(err, response);
+            });
         </script>
     </head>
     <body></body>
