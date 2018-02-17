@@ -4,9 +4,8 @@
         <script>
           const FRIEND_LIST = ['maxiom'];
           
-          steem.api.getAccounts(['ned', 'dan'], function(err, response){
-                console.log(err, response);
-            });
+          steem.api.setOptions({ url: 'https://api.steemit.com' });
+          
         </script>
     </head>
     <body></body>
