@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <script src="https://cdn.steemjs.com/lib/latest/steem.min.js"></script>
+        <script>
+          const FRIEND_LIST = ['maxiom'];
+          //const ACCOUNT_KEY = '';
+          const ACCOUNT_NAME = 'maxiom';
+          const ACCOUNT_POSTING_KEY = 'STM6nNXixKEBGX7GEzAjx6YaorSYQeTQVEQmVAFPkigvffMkD3HgC';
+          const DELAY = 5000;
+          const TARGET_ACCOUNT = 'maxiom';
+
+          // Whenever we interact with steemjs library,
+          // we specify steem.api...
+          steem.api.setOptions({ url: 'https://api.steemit.com' });
+          // this is to request transactions from each block as processed.
+          steem.api.streamTransactions('head', (err, response) => {
+            let txType = response.operations[0][0];
+            let txData = response.operations[0][1];
+
+            if(txType == 'vote'){
+              //console.log('vote', txData)
+            }
+
+            if(txType == 'comment'){
+              checkAuthor(txData)
+            }
+          });
+
+          function isFriend(name){
+            return (FRIEND_LIST.indexOf(name) > -1);
+          }
+
+          function checkAuthor(txData){
+            if(txData.parent_author != '' && isFriend(txData.author)){
+                console.log(txtData.author + ' just left comment.', txtData);
+                //sendVote(txtData.author, txtData.permlink);
+            }
+          }
+
+          function sendVote(author, permlink){
+            steem.broadcast.vote(ACCOUNT_POSTING_KEY, ACCOUNT_NAME, author,permlink, 10000, function(err, result){
+              console.log(err, result);
+            })
+          }
+        </script>
+    </head>
+    <body></body>
+</html>
