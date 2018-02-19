@@ -1,0 +1,23 @@
+{
+  "name": "notify_steemit_bot",
+  "version": "1.0.0",
+  "description": "Steemit Nofifications Bot",
+  "main": "index.html",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxiom/notify_steemit_bot.git"
+  },
+  "author": "Jake Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxiom/notify_steemit_bot/issues"
+  },
+  "homepage": "https://github.com/maxiom/notify_steemit_bot#readme"
+}

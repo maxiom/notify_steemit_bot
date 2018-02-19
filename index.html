@@ -31,8 +31,17 @@
           }
 
           function checkAuthor(txData){
-            if(txData.parent_author != '' && isFriend(txData.author)){
-                console.log(txtData.author + ' just left comment.', txtData);
+
+            if(txData.parent_author == ''){
+                if(txData.json_metadata != null){
+                    var meta = JSON.parse(txData.json_metadata);
+                    console.log(meta.tags.indexOf("kr") > -1)
+                    if(meta.tags.indexOf("kr") > -1){
+                        // new post with kr tag...
+                        console.log('comment', txData)
+                    }
+
+                }
                 //sendVote(txtData.author, txtData.permlink);
             }
           }
